@@ -3,22 +3,25 @@ class CocktailsController < ApplicationController
 
   def index
     @cocktails = Cocktail.all
+    @cocktail =  Cocktail.new
   end
 
   def show
-
+    @dose = Dose.new
+    @ingredients = Ingredient.all - @cocktail.ingredients
   end
 
-  def new
-    @cocktail =  Cocktail.new
-  end
+  # def new
+  #   @cocktail =  Cocktail.new
+  # end
 
   def create
     @cocktail = Cocktail.new(params_cocktail)
     if @cocktail.save
       redirect_to cocktail_path(@cocktail)
     else
-      render :new
+      @cocktails = Cocktail.all
+      render 'cocktails/index'
     end
   end
 

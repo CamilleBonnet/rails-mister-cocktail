@@ -1,17 +1,18 @@
   <div class="row">
     <div class="col-xs-6 col-xs-offset-3 card-border">
+      <%= simple_form_for [@cocktail, @dose] do |f| %>
+      <% if @dose.errors.any? %>
       <div id="error_explanation">
-        <% if @cocktail.errors.any? %>
-
         <ul>
-          <% @cocktail.errors.full_messages.each do |message| %>
+          <% @dose.errors.full_messages.each do |message| %>
           <li><%= message %></li>
           <% end %>
         </ul>
       </div>
       <% end %>
-      <%= simple_form_for @cocktail do |f| %>
-      <%= f.input :name %>
+
+      <%= f.input :description %>
+      <%= f.input :ingredient_id, collection: @ingredients %>
       <%= f.button :submit, class:"btn btn-success mybtn" %>
       <% end %>
     </div>

@@ -1,11 +1,14 @@
 <div class="container">
   <div class="row">
-    <h1>MLK's bar... All cocktails we can offer:</h1>
+    <h1 class="text-center">MLK's bar</h1>
+    <h1 class="text-center">All cocktails we can offer:</h1>
     <% @cocktails.each do |cocktail| %>
-    <div class="col-xs-12 col-sm-4">
-      <%= render 'shared/card', cocktail: cocktail %>
+    <div class="col-xs-6 col-sm-4">
+      <%= link_to cocktail_path(cocktail) do %>
+        <% render 'shared/card', cocktail: cocktail %>
+      <% end %>
     </div>
     <% end %>
-    <%= link_to "Add a new Cocktail", new_cocktail_path, class:"btn btn-success" %>
   </div>
+  <%= render 'cocktails/form' %>
 </div>
