@@ -59,4 +59,4 @@ gem "font-awesome-sass"
 gem "simple_form"
 gem "autoprefixer-rails"
 
-ruby '2.3.4'
+ruby '2.3.5'

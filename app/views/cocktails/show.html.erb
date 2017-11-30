@@ -1,6 +1,9 @@
 <div class="container">
   <div class="row">
-    <h1>Here the composition for a <%= @cocktail.name %></h1>
+    <h1>Here the composition for a:</h1>
+    <div class="col-xs-4 col-xs-offset-4">
+      <%= render 'shared/card', cocktail: @cocktail %>
+    </div>
     <div class="col-xs-6 col-xs-offset-3">
       <% @cocktail.doses.each do |dose| %>
       <li>
@@ -11,7 +14,7 @@
       <% end %>
     </div>
   </div>
-  <%= link_to "Back to cocktails", cocktails_path, class:"btn btn-success mybtn" %>
   <%# link_to "Add a new dose for " + @cocktail.name, new_cocktail_dose_path(@cocktail), class:"btn btn-success" %>
   <%= render 'doses/form' %>
+  <%= link_to "Back to cocktails", cocktails_path, class:"btn btn-primary mybtn btn-margin-top" %>
 </div>
