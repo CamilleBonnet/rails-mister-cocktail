@@ -11,6 +11,7 @@
     <% end %>
     <%= simple_form_for @cocktail do |f| %>
     <%= f.input :name %>
+    <%= f.input :photo, as: :attachinary %>
     <%= f.button :submit, class:"btn btn-success mybtn" %>
     <% end %>
   </div>
