@@ -1,15 +1,23 @@
-<div class="container">
-  <div class="row">
+<div id="cocktail" class="container">
     <h1>Here the composition for a:</h1>
+  <div class="row">
     <div class="col-xs-4 col-xs-offset-4">
       <%= render 'shared/card', cocktail: @cocktail %>
     </div>
-    <div class="col-xs-6 col-xs-offset-3">
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-xs-offset-4 list-items">
       <% @cocktail.doses.each do |dose| %>
-      <li>
-        <%= dose.description %> <% unless dose.ingredient.nil? %> of <%= dose.ingredient.name %> <% end %>
-        <br>
-        <%= link_to "Delete dose", dose_path(dose), method: :delete %>
+      <li class="display-list">
+        <div class="">
+          <% unless dose.ingredient.nil? %> <%= dose.ingredient.name %> : <% end %> <b> <%= dose.description %>  </b>
+        </div>
+        <div class="btn-margin-right">
+
+          <%= link_to dose_path(dose), method: :delete do %>
+          <i class="fa fa-times" aria-hidden="true"></i>
+          <% end %>
+        </div>
       </li>
       <% end %>
     </div>
